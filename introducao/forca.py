@@ -1,6 +1,8 @@
 import random
+import os
 
 def jogar():
+    os.system('clear')
     apresentacao()
     palavra_secreta = carrega_palavra_secreta()
     letras_acertadas = inicializa_letras_acertadas(palavra_secreta)
@@ -12,6 +14,7 @@ def jogar():
     print(letras_acertadas)
 
     while (not enforcou and not acertou):
+        os.system('clear')
         chute = pede_chute()
 
         if chute in palavra_secreta:
