@@ -43,12 +43,10 @@ class Playlist:
         self.nome = nome
         self._progamas = programas
 
-    @property
-    def listagem(self):
-        return self._progamas
+    def __getitem__(self, item):
+        return self._progamas[item]
 
-    @property
-    def tamanho(self):
+    def __len__(self):
         return len(self._progamas)
 
 vingadores = Filme("Vingadores - guerra infinita", 2018, 160)
@@ -70,12 +68,10 @@ atlanta.dar_like()
 filmes_e_series = [vingadores, atlanta, demolidor, tmep]
 playlist_fim_de_semana = Playlist('fim de semana', filmes_e_series)
 
-print(f'Tamanho da playlist: {playlist_fim_de_semana.tamanho}')
+print(f'Tamanho da playlist: {len(playlist_fim_de_semana)}')
 
-for programa in playlist_fim_de_semana.listagem:
+for programa in playlist_fim_de_semana:
     print(programa)
 
-print(f'Tá ou não tá? {demolidor in playlist_fim_de_semana.listagem}')
-print(f'Tá ou não tá? {rock2 in playlist_fim_de_semana.listagem}')
-print(playlist_fim_de_semana.listagem.__contains__(demolidor))
-print(playlist_fim_de_semana.listagem.__contains__(rock2))
+print(f'Tá ou não tá? {demolidor in playlist_fim_de_semana}')
+print(f'Tá ou não tá? {rock2 in playlist_fim_de_semana}')
